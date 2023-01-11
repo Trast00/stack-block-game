@@ -1,3 +1,34 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .App {
+  min-height: 100vh;
   text-align: center;
+  background-color: #f3f3f3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.list-blocks {
+  margin-top: 120px;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+}
+
+.list-blocks button {
+  margin-top: 60px;
+  height: 40px;
+  border: 1px solid rgb(157, 188, 111);
+  background-color: rgb(219, 255, 164);
+}
+
+.block-wrapper {
+  min-width: 200px;
+  min-height: 40px;
+  background-color: rgb(156, 156, 255);
+  border: 1px solid rgb(86, 86, 188);
 }
