@@ -12,7 +12,7 @@ const App = () => {
   return (
     <div className="flex-center App">
       <h1>Stack Block Game</h1>
-      {isGameStarted? <ListBlock />: <p className='flex-center btn-start' onClick={changeGameState}>Click below to start the game!</p>}
+      {isGameStarted? <ListBlock />: <button type='button' className='flex-center btn-full-screen btn-start' onClick={changeGameState}>Click below to start the game!</button>}
     </div>
   );
 }

@@ -10,14 +10,14 @@ const ListBlock = () => {
   }
 
   return (
-    <ul className="list-blocks">
-      
-      <button type='submit' onClick={addBlock}>Add cube</button>
-
-      {listBlock}
-
-    </ul>
-  )
+    <button type="submit" className="flex-center btn-full-screen list-wrapper" onClick={addBlock}>
+      <p>Click anywhere to add a new block</p>
+      <ul className="list-blocks">
+        {listBlock}
+        <Block name="static" />
+      </ul>
+    </button>
+    )
 }
 
 export default ListBlock;
