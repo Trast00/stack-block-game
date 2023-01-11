@@ -1,10 +1,7 @@
 import './App.css';
-import ListBlock from './components/ListBlock.jsx'
-
-
+import ListBlock from './components/ListBlock';
 
 function App() {
-
   return (
     <div className="App">
       <ListBlock />
