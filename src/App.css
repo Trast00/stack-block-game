@@ -32,10 +32,29 @@
 }
 
 .list-blocks {
-  margin-top: 220px;
+  margin-top: 150px;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   justify-content: center;
+}
+
+.list-blocks :last-child {
+  animation: 1000ms infinite alternate block-animation;
+  animation-timing-function: linear;
+}
+
+.block-stopped {
+  animation-play-state: paused !important;
+}
+
+@keyframes block-animation {
+  from {
+    transform: translateX(-230px);
+  }
+
+  to {
+    transform: translateX(230px);
+  }
 }
 
 .list-blocks button {
@@ -50,4 +69,10 @@
   min-height: 40px;
   background-color: rgb(156, 156, 255);
   border: 1px solid rgb(86, 86, 188);
+  position: relative;
+}
+
+
+footer {
+  position: relative;
 }

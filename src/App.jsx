@@ -13,6 +13,7 @@ const App = () => {
     <div className="flex-center App">
       <h1>Stack Block Game</h1>
       {isGameStarted? <ListBlock />: <button type='button' className='flex-center btn-full-screen btn-start' onClick={changeGameState}>Click below to start the game!</button>}
+      <footer></footer>
     </div>
   );
 }
