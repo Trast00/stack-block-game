@@ -3,7 +3,7 @@
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#-table-of-contents)
-- [📖 \[Stack-block-game\] ](#-stack-block-game-)
+- [📖 Stack-block-game ](#-stack-block-game-)
   - [🛠 Built With ](#-built-with-)
     - [Key Features ](#key-features-)
   - [🚀 Live Demo ](#-live-demo-)
@@ -18,9 +18,9 @@
   - [📝 License ](#-license-)
 
 
-# 📖 [Stack-block-game] <a name="about-project"></a>
+# 📖 Stack-block-game <a name="about-project"></a>
 
-**[Stack-block-game]** is a little game where the goal is to stack a maximum number of block. Blocks will shrink if there are not stacked perfectly. This game is developped with React.
+**Stack-block-game** is a little game where the goal is to stack a maximum number of block. Blocks will shrink if there are not stacked perfectly. This game is developped with React.
 
 ## 🛠 Built With <a name="built-with"></a>
 - HTML

@@ -3,20 +3,54 @@
   padding: 0;
 }
 
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .App {
   min-height: 100vh;
   text-align: center;
   background-color: #f3f3f3;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.btn-full-screen {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+}
+
+.list-wrapper {
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 120px;
 }
 
 .list-blocks {
-  margin-top: 120px;
+  margin-top: 150px;
   display: flex;
   flex-direction: column-reverse;
   justify-content: center;
+}
+
+.list-blocks :last-child {
+  animation: 8000ms infinite alternate block-animation;
+  animation-timing-function: linear;
+}
+
+@keyframes block-animation {
+  from {
+    transform: translateX(-230px);
+  }
+
+  to {
+    transform: translateX(230px);
+  }
 }
 
 .list-blocks button {
@@ -31,4 +65,9 @@
   min-height: 40px;
   background-color: rgb(156, 156, 255);
   border: 1px solid rgb(86, 86, 188);
+  position: relative;
+}
+
+footer {
+  position: relative;
 }

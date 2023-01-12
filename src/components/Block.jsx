@@ -1,8 +1,10 @@
 
 const Block = (props) => {
+
   return (
-    <div className="block-wrapper">
-      {props.name}
+    <div id={props.id} 
+    className="block-wrapper">
+      {props.name} {props.id}
     </div>
   )
 }
