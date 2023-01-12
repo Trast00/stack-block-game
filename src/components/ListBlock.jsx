@@ -5,37 +5,38 @@ const ListBlock = () => {
   const [nbrBlock, setNbrBlock] = useState(-1)
   const [listBlock, setListBlock] = useState([])
 
+  const stopBlock = (id) => {
+      //get the previous element
+      const currentBlock = document.getElementById((id).toString())
+      const staticBlock = document.getElementById((-1).toString())
+
+      //stop it
+      const left = currentBlock.getBoundingClientRect().left
+      const leftStatic = staticBlock.getBoundingClientRect().left
+      currentBlock.style.left = (left-leftStatic).toString() +"px"
+  }
   /* Add a block to the listBlock and render the block */
   const addBlock = () => {
-    //remove the old animation
+    //remove the stop the previous bloc
     if(listBlock.length>=1){
-      //get the previous element
-      const previousBlock = document.getElementById((listBlock.length-1).toString())
-      //stop it
-      previousBlock.style.backgroundColor = "blue"
-      previousBlock.style.animationPlayState = "paused"
-      //get his postion
-      console.log('left: ', previousBlock.getBoundingClientRect().left)
-      const left = previousBlock.getBoundingClientRect().left
-      listBlock[listBlock.length-1] = <Block name="Dynamic" id={listBlock.length} key={listBlock.length} left={left}/>
+      stopBlock(listBlock.length-1)
     }
-
     
     //add a new animated block
-    const newBlock = <Block name="Dynamic" id={listBlock.length} key={listBlock.length} left={0}/>
+    const newBlock = <Block name="Dynamic" id={listBlock.length} key={listBlock.length}/>
     listBlock.push(newBlock)
     setNbrBlock(listBlock.length)
-    console.log("Clicked: ", listBlock, " nbr: ", nbrBlock)
+    //console.log("Clicked: ", listBlock, " nbr: ", nbrBlock)
   }
 
   return (
-    <button type="submit" className="flex-center btn-full-screen list-wrapper" onClick={addBlock}>
+    <button type="submit" className="flex-center btn-full-screen list-wrapper">
       <p>Click anywhere to add a new block</p>
       <ul className="list-blocks">
         {(nbrBlock === 0)? listBlock : listBlock}
         
       </ul>
-      <Block name="static" id="-1" key={-1} left={0} />
+      <Block name="static" id="-1" key={-1}/>
     </button>
     )
 }

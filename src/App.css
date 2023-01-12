@@ -39,7 +39,7 @@
 }
 
 .list-blocks :last-child {
-  animation: 1000ms infinite alternate block-animation;
+  animation: 8000ms infinite alternate block-animation;
   animation-timing-function: linear;
 }
 
