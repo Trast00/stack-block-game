@@ -43,10 +43,6 @@
   animation-timing-function: linear;
 }
 
-.block-stopped {
-  animation-play-state: paused !important;
-}
-
 @keyframes block-animation {
   from {
     transform: translateX(-230px);
@@ -71,7 +67,6 @@
   border: 1px solid rgb(86, 86, 188);
   position: relative;
 }
-
 
 footer {
   position: relative;
