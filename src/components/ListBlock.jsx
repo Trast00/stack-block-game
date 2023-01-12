@@ -26,11 +26,10 @@ const ListBlock = () => {
     const newBlock = <Block name="Dynamic" id={listBlock.length} key={listBlock.length}/>
     listBlock.push(newBlock)
     setNbrBlock(listBlock.length)
-    //console.log("Clicked: ", listBlock, " nbr: ", nbrBlock)
   }
 
   return (
-    <button type="submit" className="flex-center btn-full-screen list-wrapper">
+    <button type="submit" className="flex-center btn-full-screen list-wrapper" onClick={addBlock}>
       <p>Click anywhere to add a new block</p>
       <ul className="list-blocks">
         {(nbrBlock === 0)? listBlock : listBlock}
