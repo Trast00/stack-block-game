@@ -5,39 +5,37 @@ const ListBlock = () => {
   const [nbrBlock, setNbrBlock] = useState(-1)
   const [listBlock, setListBlock] = useState([])
 
+  /*Stop a block and shrunk it 
+     check to block stopped position and :
+      -shrunk it and return width of the shrunked block (width of the new animated block)
+      -if the block position is complety untacked return null (the user lose the game)*/
   const stopBlock = (id) => {
-      //get the previous element
-      const currentBlock = document.getElementById((id).toString())
+    //get the previous element
+    const currentBlock = document.getElementById((id).toString())
       const staticBlock = document.getElementById((id-1).toString())
 
-      console.log(currentBlock.getBoundingClientRect())
-      //stop it
-      const {left, right, width} = currentBlock.getBoundingClientRect()
-      const {left: leftStatic, right: rigthStatic, width: widthStatic} = staticBlock.getBoundingClientRect()
-      /*if the left face of the block is outside the previous block range
-      the right face (left+width) is inside the previousBlock range
-      the element is smaller than th */
-      if(left<leftStatic && right>leftStatic){
-        //console.log("current", {left, right, width})
-        //console.log("previous", {leftStatic, rigthStatic, widthStatic})
-        //console.log(((staticBlock.style.left==="")? 0: staticBlock.style.left).toString() +"px")
+      const {left: start, right: end, width} = currentBlock.getBoundingClientRect()
+      const {left: startPrevious, right: endPrevious} = staticBlock.getBoundingClientRect()
+      /*if the block is before previous block starting and ending after previous block starting*/
+      if(start<startPrevious && end>startPrevious){
         currentBlock.style.left = ((staticBlock.style.left==="")? 0: staticBlock.style.left).toString()
-        currentBlock.style.width = ((left-leftStatic) + width).toString() + "px"
-        //console.log("left<leftStatic", currentBlock.getBoundingClientRect())
+        currentBlock.style.width = ((start-startPrevious) + width).toString() + "px"
       }
-      //if the block is between starting and the ending previous Block
-      else if(left>leftStatic && left<rigthStatic){
-        //console.log("current", {left, right, width})
-        //console.log("previous", {leftStatic, rigthStatic, widthStatic})
-        //console.log('LEFT:', ((staticBlock.style.left==="")? 0: staticBlock.style.left.slice(0, staticBlock.style.left.length-2)))
-        currentBlock.style.width = ((leftStatic+widthStatic)-left).toString() + "px"
-        currentBlock.style.left = (left - leftStatic + ((staticBlock.style.left==="")? 0: parseInt((staticBlock.style.left==="")? 0: staticBlock.style.left.slice(0, staticBlock.style.left.length-2)))).toString() +"px" //problem here
-        //console.log("left>leftStatic", currentBlock.getBoundingClientRect())
+      //if the block is between previous block starting and the previous block ending
+      else if(start>startPrevious && start<endPrevious){
+        currentBlock.style.width = (endPrevious-start).toString() + "px"
+        /*Add the left value of the previous previous block if it's not null
+          Because the left value is the left value compared ONLY to the previous block
+          we need this left value to be the left value compared the all the previous block*/
+        const previousBlocksLeft = parseInt((staticBlock.style.left==="")? 0: staticBlock.style.left)
+        currentBlock.style.left = (start - startPrevious + previousBlocksLeft).toString() +"px"
       }
+      //if the block is completly unstacked (before the previous block starting or after the previous block ending )
       else {
         return null //lose game
       }
 
+      //return the width that will be the width of the new block
       return currentBlock.style.width
       
   }
@@ -49,12 +47,12 @@ const ListBlock = () => {
       blockWidth = stopBlock(listBlock.length-1)
     }
     
-    console.log(blockWidth)
-    //If the game is not lost
+    //if the game is lost
     if(blockWidth === null && listBlock.length !==0){
-      console.log('lose')
+      //LOSE
       return
     }
+
     //add a new animated block
     const newBlock = <Block name="Dynamic" id={listBlock.length} key={listBlock.length} size={blockWidth}/>
     listBlock.push(newBlock)
