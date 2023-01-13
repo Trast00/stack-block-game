@@ -39,7 +39,7 @@
 }
 
 .list-blocks :last-child {
-  animation: 8000ms infinite alternate block-animation;
+  animation: 4000ms infinite alternate block-animation;
   animation-timing-function: linear;
 }
 
@@ -61,8 +61,8 @@
 }
 
 .block-wrapper {
-  min-width: 200px;
-  min-height: 40px;
+  width: 200px;
+  height: 40px;
   background-color: rgb(156, 156, 255);
   border: 1px solid rgb(86, 86, 188);
   position: relative;

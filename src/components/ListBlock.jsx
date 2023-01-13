@@ -10,10 +10,38 @@ const ListBlock = () => {
       const currentBlock = document.getElementById((id).toString())
       const staticBlock = document.getElementById((-1).toString())
 
+      console.log(currentBlock.getBoundingClientRect())
       //stop it
-      const left = currentBlock.getBoundingClientRect().left
-      const leftStatic = staticBlock.getBoundingClientRect().left
-      currentBlock.style.left = (left-leftStatic).toString() +"px"
+      const {left, right, width} = currentBlock.getBoundingClientRect()
+      const {left: leftStatic, right: rigthStatic, width: widthStatic} = staticBlock.getBoundingClientRect()
+      /*if the left face of the block is outside the previous block range
+      the right face (left+width) is inside the previousBlock range
+      the element is smaller than th */
+      if(left<leftStatic && right>leftStatic){
+        console.log("current", {left, right, width})
+        console.log("previous", {leftStatic, rigthStatic, widthStatic})
+        currentBlock.style.left = (0).toString() +"px"
+        currentBlock.style.width = ((left-leftStatic) + width).toString() + "px"
+        console.log("left<leftStatic", currentBlock.getBoundingClientRect())
+      }
+      //if the block is between starting and the ending previous Block
+      else if(left>leftStatic && left<rigthStatic){
+        console.log("current", {left, right, width})
+        console.log("previous", {leftStatic, rigthStatic, widthStatic})
+        currentBlock.style.width = ((leftStatic+widthStatic)-left).toString() + "px"
+        currentBlock.style.left = (widthStatic - ((leftStatic+widthStatic)-left)).toString() +"px"
+        console.log("left>leftStatic", currentBlock.getBoundingClientRect())
+      }
+      else {
+        console.log('YOU LOSE')
+      }
+
+      //IMPORTANT : currentBlock.style.left = (left-leftStatic).toString() +"px"
+
+      //shrink the block
+      //console.log("Width: ", staticBlock.getBoundingClientRect().width)
+      //console.log((left-leftStatic) - staticBlock.getBoundingClientRect().width)
+      
   }
   /* Add a block to the listBlock and render the block */
   const addBlock = () => {
