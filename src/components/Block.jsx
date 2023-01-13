@@ -1,9 +1,8 @@
 
 const Block = (props) => {
-
   return (
     <div id={props.id} 
-    className="block-wrapper">
+    className="block-wrapper" style={{width:props.size}}>
       {props.name} {props.id}
     </div>
   )
