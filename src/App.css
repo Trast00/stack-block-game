@@ -12,7 +12,7 @@
 .App {
   min-height: 100vh;
   text-align: center;
-  background-color: #f3f3f3;
+  background-color: #51505c;
   flex-direction: column;
   justify-content: flex-start;
 }
@@ -70,6 +70,12 @@
   z-index: var(--i);
 }
 
+.block-static {
+  min-height: 300px;
+  background-color: transparent;
+  background-image: linear-gradient(180deg, rgb(42, 43, 48, 1), rgb(42, 43, 48, 0));;
+}
+
 .block-wrapper::before {
   content: '';
   position: absolute;
@@ -82,6 +88,11 @@
   transform: skewY(30deg);
 }
 
+.block-static::before {
+  background-color: transparent;
+  background-image: linear-gradient(180deg, rgba(35, 37, 38, 1), rgb(35, 37, 38, 0));
+}
+
 .block-wrapper::after {
   content: ' ';
   position: absolute;
@@ -92,6 +103,10 @@
   background-color: #35383e;
   transform-origin: bottom;
   transform: skewX(60deg);
+}
+
+.block-static::after {
+  background-color: #27292d;
 }
 
 footer {
