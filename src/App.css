@@ -70,6 +70,39 @@
   transform: skewY(-15deg) translateX(50px) translateY(50px);
 }
 
+.block-wrapper {
+  display: block;
+  position: relative;
+  width: 200px;
+  height: 40px;
+  background-color: #3e3f46;
+  z-index: var(--i);
+}
+
+.block-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150px;
+  height: 100%;
+  width: 150px;
+  background-color: #2e3133;
+  transform-origin: right;
+  transform: skewY(45deg);
+}
+
+.block-wrapper::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 150px;
+  width: 100%;
+  top: -150px;
+  left: 0;
+  background-color: #35383e;
+  transform-origin: bottom;
+  transform: skewX(45deg);
+}
 
 footer {
   position: relative;
