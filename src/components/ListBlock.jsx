@@ -1,7 +1,7 @@
 import { useState } from "react"
 import Block from "./Block.jsx"
 
-const ListBlock = () => {
+const ListBlock = (props) => {
   const [nbrBlock, setNbrBlock] = useState(-1)
   const [listBlock, setListBlock] = useState([])
 
@@ -44,17 +44,17 @@ const ListBlock = () => {
     //remove the stop the previous bloc
     let blockWidth = 200
     if(listBlock.length>=1){
-      blockWidth = stopBlock(listBlock.length-1)
+      blockWidth = stopBlock(listBlock.length)
     }
     
     //if the game is lost
     if(blockWidth === null && listBlock.length !==0){
-      //LOSE
+      props.finishGame(listBlock.length)
       return
     }
 
     //add a new animated block
-    const newBlock = <Block name="Dynamic" id={listBlock.length} key={listBlock.length} size={blockWidth}/>
+    const newBlock = <Block name="Dynamic" id={listBlock.length+1} key={listBlock.length+1} size={blockWidth}/>
     listBlock.push(newBlock)
     setNbrBlock(listBlock.length)
   }
@@ -64,9 +64,8 @@ const ListBlock = () => {
       <p>Click anywhere to add a new block</p>
       <ul className="list-blocks">
         {(nbrBlock === 0)? listBlock : listBlock}
-        
       </ul>
-      <Block name="static" id="-1" key={-1}/>
+      <Block name="static" id="0" key={0}/>
     </button>
     )
 }
