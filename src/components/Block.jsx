@@ -4,6 +4,7 @@ const Block = (props) => {
     <div id={props.id} 
     className="block-wrapper" style={{width:props.size}}>
       {props.name} {props.id}
+      
     </div>
   )
 }

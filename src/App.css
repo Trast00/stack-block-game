@@ -64,10 +64,12 @@
 .block-wrapper {
   width: 200px;
   height: 40px;
+  position: relative; 
   background-color: rgb(156, 156, 255);
   border: 1px solid rgb(86, 86, 188);
-  position: relative;
+  transform: skewY(-15deg) translateX(50px) translateY(50px);
 }
+
 
 footer {
   position: relative;

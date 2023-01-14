@@ -1,7 +1,7 @@
 import { useState } from "react"
 import Block from "./Block.jsx"
 
-const ListBlock = () => {
+const ListBlock = (props) => {
   const [nbrBlock, setNbrBlock] = useState(-1)
   const [listBlock, setListBlock] = useState([])
 
@@ -49,7 +49,7 @@ const ListBlock = () => {
     
     //if the game is lost
     if(blockWidth === null && listBlock.length !==0){
-      //LOSE
+      props.finishGame(listBlock.length)
       return
     }
 
