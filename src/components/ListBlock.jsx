@@ -64,7 +64,6 @@ const ListBlock = (props) => {
       <p>Click anywhere to add a new block</p>
       <ul className="list-blocks">
         {(nbrBlock === 0)? listBlock : listBlock}
-        
       </ul>
       <Block name="static" id="0" key={0}/>
     </button>
