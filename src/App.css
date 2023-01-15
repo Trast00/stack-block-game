@@ -141,3 +141,19 @@
 footer {
   position: relative;
 }
+
+@media screen and (max-width: 768px) {
+  .list-blocks {
+    padding-left: 100px;
+  }
+
+  .block-static {
+    margin-left: 100px;
+  }
+
+  .score-popup {
+    position: static;
+    transform: none;
+    margin-top: 300px;
+  }
+}

@@ -4,6 +4,8 @@ import Block from "./Block.jsx"
 const ListBlock = (props) => {
   const [nbrBlock, setNbrBlock] = useState(-1)
   const [listBlock, setListBlock] = useState([])
+  const soundStack= new Audio(require('../sound/soundstack.wav'))
+
 
   const restartGame = () => {
     setListBlock([])
@@ -52,6 +54,10 @@ const ListBlock = (props) => {
     if(listBlock.length>=1){
       blockWidth = stopBlock(listBlock.length)
       props.updateScore(listBlock.length)
+    } else {
+      //game started
+      const soundStart = new Audio(require('../sound/soundstart.wav'))
+      soundStart.play()
     }
     
     //if the game is lost
@@ -59,7 +65,12 @@ const ListBlock = (props) => {
       props.updateScore(listBlock.length-1)
       document.getElementById(listBlock.length).style.display = "none"
       document.getElementById('btn-start').onclick = ()=> {restartGame()}
+      
+      const soundLose = new Audio(require('../sound/songlose.wav'))
+      soundLose.play()
       return
+    } else {
+      soundStack.play()
     }
 
     //add a new animated block
