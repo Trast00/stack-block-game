@@ -83,7 +83,6 @@
 .block-wrapper {
   width: 200px;
   height: 40px;
-  display: block;
   position: relative;
   background-color: #3e3f46;
   z-index: var(--i);

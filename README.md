@@ -31,8 +31,9 @@
 ### Key Features <a name="key-features"></a>
 
 - **Interactive animation stop on mouse click**
-- **Highly animated game with React JS**
-- **Stack block**
+- **3D game with CSS**
+- **Block add, remove, shrunk**
+- **Mobile and destok version**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -81,7 +82,7 @@ To run the project, execute the following command:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **Make the design 3d**
+- [x] **Make the design 3d**
 - [ ] **Add animation for the menu**
 - [ ] **Make the game embeddable**
 
