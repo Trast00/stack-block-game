@@ -5,6 +5,12 @@ const ListBlock = (props) => {
   const [nbrBlock, setNbrBlock] = useState(-1)
   const [listBlock, setListBlock] = useState([])
 
+  const restartGame = () => {
+    setListBlock([])
+    document.getElementById('btn-start').onclick = addBlock()
+    props.updateScore(-1)
+  }
+
   /*Stop a block and shrunk it 
      check to block stopped position and :
       -shrunk it and return width of the shrunked block (width of the new animated block)
@@ -45,11 +51,14 @@ const ListBlock = (props) => {
     let blockWidth = 200
     if(listBlock.length>=1){
       blockWidth = stopBlock(listBlock.length)
+      props.updateScore(listBlock.length)
     }
     
     //if the game is lost
     if(blockWidth === null && listBlock.length !==0){
-      props.finishGame(listBlock.length)
+      props.updateScore(listBlock.length-1)
+      document.getElementById(listBlock.length).style.display = "none"
+      document.getElementById('btn-start').onclick = ()=> {restartGame()}
       return
     }
 
@@ -60,8 +69,7 @@ const ListBlock = (props) => {
   }
 
   return (
-    <button type="submit" className="flex-center btn-full-screen list-wrapper" onClick={addBlock}>
-      <p>Click anywhere to add a new block</p>
+    <button id="btn-start" type="submit" className="flex-center btn-full-screen list-wrapper" onClick={addBlock}>
       <ul className="list-blocks">
         {(nbrBlock === 0)? listBlock : listBlock}
       </ul>

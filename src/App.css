@@ -17,12 +17,16 @@
   justify-content: flex-start;
 }
 
+.App h1 {
+  color: rgb(19, 20, 22);
+  z-index: 1;
+}
+
 .btn-full-screen {
   position: absolute;
   width: 100%;
-  height: 100%;
   border: none;
-  background: transparent;
+  background-color: #51505c;
 }
 
 .list-wrapper {
@@ -33,7 +37,7 @@
 
 .list-blocks {
   width: 200px;
-  margin-top: 150px;
+  margin-top: 170px;
   display: flex;
   flex-direction: column-reverse;
   justify-content: center;
@@ -42,6 +46,21 @@
 .list-blocks :last-child {
   animation: 4000ms infinite alternate block-animation;
   animation-timing-function: linear;
+}
+
+.score-popup {
+  position: absolute;
+  width: 100px;
+  top: 220px;
+  border-radius: 4px;
+  margin-top: 150px;
+  z-index: 1000;
+  left: 230px;
+  padding: 12px;
+  color: #18191c;
+  font-weight: 700;
+  transform: skewY(30deg);
+  background-color: white;
 }
 
 @keyframes block-animation {
@@ -68,6 +87,16 @@
   position: relative;
   background-color: #3e3f46;
   z-index: var(--i);
+  display: flex;
+  justify-content: center;
+}
+
+.block-wrapper p {
+  width: 70%;
+  height: 80px;
+  padding: 20px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 20px;
 }
 
 .block-static {
