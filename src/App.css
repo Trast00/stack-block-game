@@ -96,7 +96,7 @@
   height: 80px;
   padding: 20px;
   color: rgba(255, 255, 255, 0.8);
-  font-size: 20px;
+  font-size: 1.25rem;
 }
 
 .block-static {
@@ -154,6 +154,6 @@ footer {
   .score-popup {
     position: static;
     transform: none;
-    margin-top: 300px;
+    margin-top: 320px;
   }
 }
