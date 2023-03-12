@@ -13,9 +13,13 @@ const Block = (props) => {
   );
 };
 
+Block.defaultProps = {
+  size: -1,
+};
+
 Block.propTypes = {
-  id: PropTypes.number.isRequired,
-  size: PropTypes.number.isRequired,
+  id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+  size: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };
 
 export default Block;

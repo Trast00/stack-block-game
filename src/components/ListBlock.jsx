@@ -37,12 +37,25 @@ const ListBlock = (props) => {
     } else {
       /* if the block is completly unstacked
       (before the previous block starting or after the previous block ending ) */
-      return null; // lose game
+      return -1; // lose game
     }
 
     // return the width that will be the width of the new block
     return currentBlock.style.width;
   };
+
+  const restartGame = () => {
+    setListBlock([]);
+    updateScore(-1);
+  };
+
+  const finishGame = () => {
+    updateScore(listBlock.length - 1);
+    document.getElementById(listBlock.length).style.display = 'none';
+    const soundLose = new Audio(songlose);
+    soundLose.play();
+  };
+
   /* Add a block to the listBlock and render the block */
   const addBlock = () => {
     // remove the stop the previous bloc
@@ -56,20 +69,13 @@ const ListBlock = (props) => {
       soundStart.play();
     }
 
-    const restartGame = () => {
-      setListBlock([]);
-      document.getElementById('btn-start').onclick = addBlock();
-      updateScore(-1);
-    };
-
     // if the game is lost
-    if (blockWidth === null && listBlock.length !== 0) {
-      updateScore(listBlock.length - 1);
-      document.getElementById(listBlock.length).style.display = 'none';
-      document.getElementById('btn-start').onclick = () => { restartGame(); };
-
-      const soundLose = new Audio(songlose);
-      soundLose.play();
+    if (blockWidth === -1 && listBlock.length !== 0) {
+      document.getElementById('btn-start').onclick = () => {
+        restartGame();
+        document.getElementById('btn-start').onclick = addBlock();
+      };
+      finishGame();
       return;
     }
     soundStack.play();
