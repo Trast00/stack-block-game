@@ -69,7 +69,7 @@ const ListBlock = (props) => {
 
   const handleClick = () => {
     // remove the stop the previous bloc
-    
+
     if (listBlock.length >= 1) {
       blockWidth = stopBlock(listBlock.length);
       updateScore(listBlock.length);
