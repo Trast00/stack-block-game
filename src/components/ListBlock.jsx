@@ -10,6 +10,7 @@ const ListBlock = (props) => {
   const [nbrBlock, setNbrBlock] = useState(-1);
   const [listBlock, setListBlock] = useState([]);
   const soundStack = new Audio(soundstack);
+  let blockWidth = 200;
 
   /* Stop a block and shrunk it
      check to block stopped position and :
@@ -58,8 +59,17 @@ const ListBlock = (props) => {
 
   /* Add a block to the listBlock and render the block */
   const addBlock = () => {
+    soundStack.play();
+
+    // add a new animated block
+    const newBlock = <Block name="Dynamic" id={listBlock.length + 1} key={listBlock.length + 1} size={blockWidth} />;
+    listBlock.push(newBlock);
+    setNbrBlock(listBlock.length);
+  };
+
+  const handleClick = () => {
     // remove the stop the previous bloc
-    let blockWidth = 200;
+    
     if (listBlock.length >= 1) {
       blockWidth = stopBlock(listBlock.length);
       updateScore(listBlock.length);
@@ -78,16 +88,16 @@ const ListBlock = (props) => {
       finishGame();
       return;
     }
-    soundStack.play();
-
-    // add a new animated block
-    const newBlock = <Block name="Dynamic" id={listBlock.length + 1} key={listBlock.length + 1} size={blockWidth} />;
-    listBlock.push(newBlock);
-    setNbrBlock(listBlock.length);
+    addBlock();
   };
 
   return (
-    <button id="btn-start" type="submit" className="flex-center btn-full-screen list-wrapper" onClick={addBlock}>
+    <button
+      id="btn-start"
+      type="submit"
+      className="flex-center btn-full-screen list-wrapper"
+      onClick={handleClick}
+    >
       <ul className="list-blocks">
         {(nbrBlock === 0) ? listBlock : listBlock}
       </ul>
