@@ -39,7 +39,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-[Live demo available](https://trast00-stack-block.onrender.com/)
+[Live demo available](https://trast00-stack-block-game.netlify.app/)
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
