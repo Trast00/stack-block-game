@@ -105,7 +105,7 @@ Give a ⭐️ if you like this project! It's help a lot
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
 I would like to thank:
-- [Online Tutorials](https://www.youtube.com/watch?v=j1Wr-jiodpo)
+- [Online Tutorials](https://www.youtube.com/watch?v=j1Wr-jiodpo): For teaching me to make 3d design for block
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
