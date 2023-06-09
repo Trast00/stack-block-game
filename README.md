@@ -37,6 +37,17 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+## Preview
+
+<details>
+  <summary>Preview</summary>
+  
+  ![image](https://github.com/Trast00/stack-block-game/assets/74411135/3e6276fc-b8f4-4bed-9095-045518c56365)
+    
+  ![image](https://github.com/Trast00/stack-block-game/assets/74411135/dea9a9af-98ba-4ce6-b79a-702e7874a816)
+
+</details>
+
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 [Live demo available](https://trast00-stack-block-game.netlify.app/)
